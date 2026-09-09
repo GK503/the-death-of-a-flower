@@ -7,16 +7,29 @@ Blank = "" #for advancing picture frames etc.
 5 = "Dr. Nya: *sigh* We need to talk about this when your \"other\" comes out. What do you feel?"
 6 = "Dr. Nya: And you don\u2019t remember anything? Nothing at all?"
 7 = "Dr. Nya: You haven\u2019t had flashes or anything, no split-second recollections of what happens?"
+8 = "Dr. Nya: You didn’t really think about it? Not at all? Just try to remember it harder."
+9 = "Dr. Nya: You’re right, that isn’t professional of me. It’s just…"
+10 = "Dr. Nya: {Mc}… You need to give me something to work with."
+#reuse #1
+11 = "Dr. Nya: *Sharp inhale* Alright, you may leave now. I'll see you in four days."
 [M.MONDAY] #Main character
 1 = "{Mc}: Hm? Oh- yeah."
 2 = "{Mc}: I don\u2019t feel… anything… One moment I\u2019m doing something by myself… the next I'm lying on the floor of my house, with blood or bruises all over my body. Sometimes there\u2019s a knife. And I\u2019m out of breath."
 3 = "{Mc}: No"
 #split recollection picture
-
+4 = "{Mc}: Nope"
+5 = "{Mc}: Just \u2019remember harder\u2019? Do you hear yourself right now?"
+6 = "{Mc}: That’s the thing! I don’t have anything to give you!"
+7 = "{Mc}: I don't want to talk about it. Not right now."
+8 = "{Mc}: Yeah."
+9 = "{Mc}: What are you doing? Such a strong smell."
+10 = "{Mc}: Zayla, again? Didn’t I tell you to stop?"
 [E.MONDAY] #Lover
 
 [A.MONDAY] #Zayla
-
+1 = "Zayla: Nee-san, are ya home?"
+2 = "Zayla: Just… fixing a kid from my school."
+3 = "Zayla: Shhh! You're gonna disturb the neighbors."
 [I.MONDAY] #Inari
 
 [Y.MONDAY] #Yalina
@@ -28,6 +41,28 @@ Blank = "" #for advancing picture frames etc.
 1 = "[Surrounded by a room too small with windows too huge. Fake plants on the walls. As well as the iconic, overused two sofas across from one another.]"
 2 = "[Yellow light bulbs burn your eyes, yet fail to illuminate the rest of the room. Each light glaring deep into your soul as the pressure suffocates you alive.]"
 3 = "[Twice a week, you\u2019re dragged into these hellish evening meetings. You stare out the too-large window as she talks, mind long gone as it flows farther away from your true body.]"
+4 = "[You leave the room and step into the hallway.]"
+5 = "[The voided silence, intruding calmness that emit from every which way.]"
+6 = "[The door at the end of the hallway feels like a relieving escape to you. A final exit to your tortured confinement, as well as a release to the weight of interrogation.]"
+7 = "[It's raining, dark grey clouds fully cover the dimly lit sky.]"
+8 = "[People walk past; some look and whisper. Most just ignore you.]"
+9 = "[You forgot your umbrella.]"
+10 = "[Whatever, you don’t live that far anyway.]"
+11 = "[As you walk down the dark streets towards your car, a plethora of sounds surround your head.]"
+12 = "[From the twit of birds to the sounds of your own footsteps. The flicker of each street light and the eerie creaking of the dark alleyways.]"
+13 = "[You decide to stay alert while driving home.]"
+14 = "Timeskip 20 min later" #title card type shit
+15 = "[You arrive at your house.]"
+16 = "[It’s a small apartment.]"
+17 = "[Dark, the lights are off.]"
+18 = "[You switch the lights on, click.]"
+19 = "[A certain familiar scent hits you like a wall.]"
+20 = "[Zayla’s head pops out of one of the doors in the hallway.]"
+21 = "[She giggles.]"
+22 = "[A muffled cry comes from the room.]"
+23 = "[Zayla turns around to address the noise.]"
+24 = "[You give Zayla a look and sigh.]"
+
 #seperate sub-tables for each character
 #make sure that we use "serde" for runtime lookup
 #use Oncelock aswell to avoid bad memory issues
