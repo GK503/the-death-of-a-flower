@@ -2,3 +2,7 @@
 /target
 # This file contains environment-specific configuration like linker settings
 .cargo/config.toml
+JAVA/app/bin/
+JAVA/app/build/
+JAVA/app/out/
+JAVA/build
