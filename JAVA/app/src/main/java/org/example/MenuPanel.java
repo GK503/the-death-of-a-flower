@@ -1,8 +1,9 @@
 package org.example;
 
 import javax.imageio.ImageIO;
-import java.io.File;
+// import java.io.File;
 import javax.swing.*;
+import javax.swing.OverlayLayout;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -15,40 +16,56 @@ public class MenuPanel extends JPanel {
         this.width = width;
         this.height = height;
         setPreferredSize(new Dimension(width, height));
-        setLayout(null);
+        setLayout(new OverlayLayout(this));
         setOpaque(false);
+        setDoubleBuffered(true);
 
         backgroundImage = loadBackground();
 
         JLabel backgroundLabel = new JLabel(new ImageIcon(backgroundImage));
-        backgroundLabel.setBounds(0, 0, width, height);
+        backgroundLabel.setHorizontalAlignment(JLabel.CENTER);
+        backgroundLabel.setVerticalAlignment(JLabel.CENTER);
         add(backgroundLabel);
 
-        createMenuButtons();
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(3, 1, 10, 10));
+        buttonPanel.setOpaque(true);
+        buttonPanel.setBackground(new Color(0, 0, 0, 0));
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+        buttonPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        buttonPanel.setAlignmentY(Component.TOP_ALIGNMENT);
+
+        JButton startButton = createMenuButton("START");
+        startButton.addActionListener(e -> {
+            System.out.println("Start game clicked!");
+            // TODO: Start game logic
+        });
+
+        JButton settingsButton = createMenuButton("SETTINGS");
+        settingsButton.addActionListener(e -> {
+            System.out.println("Settings clicked!");
+            // TODO: Open settings
+        });
+
+        JButton quitButton = createMenuButton("QUIT");
+        quitButton.addActionListener(e -> System.exit(0));
+
+        buttonPanel.add(startButton);
+        buttonPanel.add(settingsButton);
+        buttonPanel.add(quitButton);
+
+        add(buttonPanel);
     }
 
     private Image loadBackground() {
-        // try {
-            // Load from classpath resources instead of file system
-            java.net.URL url = getClass().getResource("/assets/placeholder.png");
-            try {
-                return ImageIO.read(url);
-            } catch (Exception e) {
-                System.err.println("Failed to load background image: " + e.getMessage());
-                Image empty = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-                return empty;
-                // return createGradientTestBackground();
-            }
-            // if (url != null) {
-            //     return ImageIO.read(url);
-            // } else {
-            //     System.err.println("Background image not found in resources");
-            //     return createGradientTestBackground();
-            // }
-        // } catch (Exception e) {
-        //     System.err.println("Failed to load background image: " + e.getMessage());
-        //     return createGradientTestBackground();
-        // }
+        // Load from classpath resources instead of file system
+        java.net.URL url = getClass().getResource("/assets/placeholder.png");
+        try {
+            return ImageIO.read(url);
+        } catch (Exception e) {
+            System.err.println("Failed to load background image: " + e.getMessage());
+            return createGradientTestBackground();
+        }
     }
 
     private Image createGradientTestBackground() {
@@ -68,36 +85,6 @@ public class MenuPanel extends JPanel {
         }
         g2d.dispose();
         return img;
-    }
-
-    private void createMenuButtons() {
-        int buttonWidth = 200;
-        int buttonHeight = 50;
-        int centerX = (width - buttonWidth) / 2;
-
-        JButton startButton = createMenuButton("START");
-        startButton.setBounds(centerX, 200, buttonWidth, buttonHeight);
-        add(startButton);
-
-        JButton settingsButton = createMenuButton("SETTINGS");
-        settingsButton.setBounds(centerX, 280, buttonWidth, buttonHeight);
-        add(settingsButton);
-
-        JButton quitButton = createMenuButton("QUIT");
-        quitButton.setBounds(centerX, 360, buttonWidth, buttonHeight);
-        add(quitButton);
-
-        startButton.addActionListener(e -> {
-            System.out.println("Start game clicked!");
-            // TODO: Start game logic
-        });
-
-        settingsButton.addActionListener(e -> {
-            System.out.println("Settings clicked!");
-            // TODO: Open settings
-        });
-
-        quitButton.addActionListener(e -> System.exit(0));
     }
 
     private JButton createMenuButton(String text) {
